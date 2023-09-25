@@ -1,0 +1,35 @@
+# Hosting on S3
+
+1) create a bucket.
+
+2) add your files (index.html)
+
+3) Go to properties --> enable static website hosting 
+
+4) Go to Permissions --> unmark to Block public access 
+
+5) Go to Permissions --> create bucket Policy
+	
+	{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "Statement1",
+            "Effect": "Allow",
+            "Principal": "*",
+            "Action": [
+                "s3:GetObject",
+                "s3:ListBucket"
+            ],
+            "Resource": [
+                "arn:aws:s3:::static-website-zomato",
+                "arn:aws:s3:::static-website-zomato/*"
+            ]
+        }
+    ]
+}
+
+
+6) copy the Bucket website endpoint URL
+
+7) check on browser 
